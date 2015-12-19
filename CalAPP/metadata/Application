@@ -1,0 +1,74 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "name": "CalAPP",
+        "views": [
+            "MyContainer"
+        ]
+    },
+    "name": "Application",
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    "var calendarView = Ext.create('Ext.ux.TouchCalendarView', {",
+                    "                        minDate: Ext.Date.add(new Date(), Ext.Date.DAY, -46),",
+                    "                        maxDate: Ext.Date.add(new Date(), Ext.Date.DAY, 60),",
+                    "                        viewMode: 'day',",
+                    "                        weekStart: 0,",
+                    "                        value: new Date(),",
+                    "                        eventStore: eventStore,",
+                    "                        ",
+                    "                        plugins: [Ext.create('Ext.ux.TouchCalendarEvents', {",
+                    "                            eventHeight: 'auto',",
+                    "                            eventBarTpl: '<div>{event}</div><div>{title}</div>'",
+                    "                        })]",
+                    "                    });",
+                    "                    ",
+                    "                    var calendarPanel = new Ext.Panel({",
+                    "                        fullscreen: true,",
+                    "                        layout: 'fit',",
+                    "                        items: [calendarView, {",
+                    "                            xtype: 'toolbar',",
+                    "                            docked: 'top',",
+                    "                            items: [{",
+                    "                                xtype: 'button',",
+                    "                                text: 'Month View',",
+                    "                                handler: function(){",
+                    "                                    calendarView.setViewMode('month');",
+                    "                                }",
+                    "                            }, {",
+                    "                                xtype: 'button',",
+                    "                                text: 'Week View',",
+                    "                                handler: function(){",
+                    "                                    calendarView.setViewMode('week');",
+                    "                                }",
+                    "                            }, {",
+                    "                                xtype: 'button',",
+                    "                                text: 'Day View',",
+                    "                                handler: function(){",
+                    "                                    calendarView.setViewMode('day');",
+                    "                                }",
+                    "                            }]",
+                    "                        }]",
+                    "                    });"
+                ]
+            },
+            "name": "launch",
+            "designerId": "7ee8e981-f8b7-4c0c-bdc3-e5dfdf8f6d24"
+        }
+    ]
+}

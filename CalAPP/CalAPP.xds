@@ -1,0 +1,51 @@
+{
+    "name": "CalAPP",
+    "settings": {
+        "cmd": {
+            "license": "commercial",
+            "cmdVersion": "6.0.1.76",
+            "frameworkVersion": "2.4.2.571"
+        },
+        "canvasControls": {
+            "viewportSize": {
+                "name": "iPhone",
+                "builtIn": true,
+                "height": 480,
+                "width": 320
+            },
+            "viewportOrientation": "portrait"
+        },
+        "urlPrefix": "http://localhost:1841",
+        "exportPath": "",
+        "spacesToIndent": 4,
+        "sdkPath": "",
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": false,
+        "generateArchitectVersion": true,
+        "projectHasEnabledWebServer": true,
+        "lockUrlPrefix": true,
+        "installStatus": "Not Installed"
+    },
+    "xdsVersion": "3.2.0",
+    "xdsBuild": 339,
+    "schemaVersion": 1,
+    "upgradeVersion": 310000000001,
+    "framework": "touch24",
+    "viewOrderMap": {
+        "view": [
+            "56896acb-688b-4dad-9550-a6d819ed0b65"
+        ],
+        "store": [],
+        "controller": [],
+        "model": [],
+        "resource": [
+            "2f6de298-8c9b-4ce4-98d7-2b166f731b98",
+            "974cbfca-abca-48c2-be97-d1968c39358a"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

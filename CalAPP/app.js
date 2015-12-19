@@ -29,7 +29,7 @@ Ext.application({
         var calendarView = Ext.create('Ext.ux.TouchCalendarView', {
                                 minDate: Ext.Date.add(new Date(), Ext.Date.DAY, -46),
                                 maxDate: Ext.Date.add(new Date(), Ext.Date.DAY, 60),
-                                viewMode: 'day',
+                                viewMode: 'month',
                                 weekStart: 0,
                                 value: new Date(),
                                 eventStore: eventStore,
@@ -39,7 +39,7 @@ Ext.application({
                                     eventBarTpl: '<div>{event}</div><div>{title}</div>'
                                 })]
                             });
-
+        CalAPP.calender = calendarView;
                             var calendarPanel = new Ext.Panel({
                                 //fullscreen: true,
                                 layout: 'fit',
@@ -47,6 +47,10 @@ Ext.application({
                                 items: [calendarView, {
                                     xtype: 'toolbar',
                                     docked: 'top',
+                                    layout:{
+                                        type:'hbox',
+                                        pack:'center'
+                                    },
                                     items: [{
                                         xtype: 'button',
                                         text: 'Month View',
@@ -69,9 +73,8 @@ Ext.application({
                                         xtype:'button',
                                         text:'createEvent',
                                         itemId:'createEvent',
-                                        handler:function(){
-                                            //alert('create New Event');
-                                        }
+                                        hidden:true
+
                                     }]
                                 }]
                             });
@@ -117,14 +120,17 @@ Ext.application({
 
                                if(view.getViewMode()!="DAY"){
                                    calendarView.setViewMode('day');
-                                   calendarView.setValue(newDate);
+                                   calendarView.currentDate = newDate;
+                                   calendarView.refresh();
                                    return;
                                }
 
+                                var compose = Ext.create('CalAPP.view.MyContainer',{
 
-                                //Ext.componentQuery.query('createEvent')[0].enable();
-                                //Ext.componentQuery.query('createEvent')[0].presentSelectedDate = newDate ;
-                                //debugger;
+                                    currentDate : newDate
+                                });
+
+                                nv.push(compose);
                             });
                             calendarView.on('eventdragstart', function(draggable, eventRecord, e){
                                 console.log('eventdragstart');

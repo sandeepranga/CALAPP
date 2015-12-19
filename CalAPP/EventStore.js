@@ -18,6 +18,15 @@ Ext.define("Event", {
 		}, {
 			name: 'css',
 			type: 'string'
+		},{
+			name:'content',
+			type:'string'
+		},{
+			name:'subject',
+			type:'string'
+		},{
+			name:'to',
+			type:'string'
 		}]
 	}
 });
@@ -34,7 +43,8 @@ var eventStore = Ext.create('Ext.data.Store', {
         title: 'Event Name 1',
         start: new Date(year, month, day, 8, 3),
         end: new Date(year, month, day, 8, 5),
-	    css: 'red'
+	    css: 'red',
+	    content :''
     }, {
         event: '7:00 - 7:05',
 	    title: 'Event Name 2',

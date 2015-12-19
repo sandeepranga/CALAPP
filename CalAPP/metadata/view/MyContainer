@@ -8,6 +8,7 @@
     "userConfig": {
         "designer|userClassName": "MyContainer",
         "height": "100%",
+        "itemId": "tinyCotainer",
         "layout": "fit",
         "width": "100%"
     },
@@ -23,10 +24,28 @@
             "codeClass": null,
             "userConfig": {
                 "docked": "top",
-                "label": "To"
+                "itemId": "to",
+                "label": "To",
+                "placeHolder": "example@walkingtree.in"
             },
             "name": "MyTextField",
             "designerId": "e43a4e29-9834-41ce-b414-2f582fa2c7ab"
+        },
+        {
+            "type": "Ext.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "top",
+                "itemId": "subject",
+                "label": "Subject",
+                "placeHolder": "subject"
+            },
+            "name": "MyTextField1",
+            "designerId": "883831f0-c42d-47dc-b11d-2af8d85ec862"
         },
         {
             "type": "Ext.Container",
@@ -54,9 +73,11 @@
                     "userConfig": {
                         "fn": "onTinyMCAEditorPainted",
                         "implHandler": [
+                            "tinymce.remove();",
+                            "",
                             "tinymce.init({",
                             "  selector: '#tymca',",
-                            "  //height: 500,",
+                            "  height: '100%',",
                             "  theme: 'modern',",
                             "  plugins: [",
                             "    'advlist autolink lists link image charmap print preview hr anchor pagebreak',",
@@ -76,7 +97,20 @@
                             "    '//www.tinymce.com/css/codepen.min.css'",
                             "  ]",
                             " });",
-                            ""
+                            "",
+                            "if(!this.up('#tinyCotainer').config.event){",
+                            "    ",
+                            "    var button = this.up('#tinyCotainer').down('#deleteBUtton');",
+                            "    button.hide();",
+                            "",
+                            "}else{",
+                            "    ",
+                            "    var data = this.up('#tinyCotainer').config.event.data;",
+                            "    var tinyCont = this.up('#tinyCotainer');",
+                            "    var toMail = tinyCont.down('#to').setValue(data.to);",
+                            "    var subJect = tinyCont.down('#subject').setValue(data.subject);",
+                            "    tinymce.activeEditor.setContent(data.content);",
+                            "}"
                         ],
                         "name": "painted"
                     },
@@ -125,12 +159,81 @@
                                 ],
                                 "fn": "handler",
                                 "implHandler": [
+                                    "var tinyCont = this.up('#tinyCotainer');",
+                                    "var toMail = tinyCont.down('#to').getValue();",
+                                    "var subJect = tinyCont.down('#subject').getValue();",
+                                    "var content = tinymce.activeEditor.getContent();",
+                                    "var currentdate = '';",
+                                    "var endDate = '';",
+                                    "if(!tinyCont.config.event){",
+                                    "    currentdate = tinyCont.config.currentDate;",
+                                    "    endDate = tinyCont.config.currentDate;",
+                                    "",
+                                    "    //debugger;",
+                                    "}else{",
+                                    "    currentdate = tinyCont.config.event.data.start;",
+                                    "    endDate = tinyCont.config.event.data.end;",
+                                    "}",
+                                    "eventStore.add({",
+                                    "        event: 'subJect',",
+                                    "        title: subJect,",
+                                    "        start: currentdate,",
+                                    "        end: endDate,",
+                                    "\t    css: 'red',",
+                                    "\t    content :content,",
+                                    "        subject:subJect,",
+                                    "        to:toMail",
+                                    "",
+                                    "});",
                                     "this.up('#navigationView').pop();",
-                                    ""
+                                    "CalAPP.calender.refresh();"
                                 ]
                             },
                             "name": "handler",
                             "designerId": "fefbb5f6-57f8-48a2-9ea7-5eb1c565e10d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "deleteBUtton",
+                        "text": "delete"
+                    },
+                    "name": "MyButton1",
+                    "designerId": "ad51cd56-f1c6-4bed-89c8-7d8104fc3a0b",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "e"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "",
+                                    "var tinyCont = this.up('#tinyCotainer');",
+                                    "",
+                                    "if(tinyCont.config.event){",
+                                    "    eventStore.remove(tinyCont.config.event);",
+                                    "}",
+                                    "this.up('#navigationView').pop();",
+                                    "CalAPP.calender.refresh();"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "dfaa3efa-0c5a-49e5-8b28-e67a1dd5343c"
                         }
                     ]
                 }

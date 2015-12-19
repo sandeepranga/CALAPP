@@ -24,13 +24,23 @@ Ext.define('CalAPP.view.MyContainer', {
 
     config: {
         height: '100%',
+        itemId: 'tinyCotainer',
         width: '100%',
         layout: 'fit',
         items: [
             {
                 xtype: 'textfield',
                 docked: 'top',
-                label: 'To'
+                itemId: 'to',
+                label: 'To',
+                placeHolder: 'example@walkingtree.in'
+            },
+            {
+                xtype: 'textfield',
+                docked: 'top',
+                itemId: 'subject',
+                label: 'Subject',
+                placeHolder: 'subject'
             },
             {
                 xtype: 'container',
@@ -40,9 +50,11 @@ Ext.define('CalAPP.view.MyContainer', {
                 listeners: [
                     {
                         fn: function(element, eOpts) {
+                            tinymce.remove();
+
                             tinymce.init({
                                 selector: '#tymca',
-                                //height: 500,
+                                height: '100%',
                                 theme: 'modern',
                                 plugins: [
                                 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
@@ -63,6 +75,19 @@ Ext.define('CalAPP.view.MyContainer', {
                                 ]
                             });
 
+                            if(!this.up('#tinyCotainer').config.event){
+
+                                var button = this.up('#tinyCotainer').down('#deleteBUtton');
+                                button.hide();
+
+                            }else{
+
+                                var data = this.up('#tinyCotainer').config.event.data;
+                                var tinyCont = this.up('#tinyCotainer');
+                                var toMail = tinyCont.down('#to').setValue(data.to);
+                                var subJect = tinyCont.down('#subject').setValue(data.subject);
+                                tinymce.activeEditor.setContent(data.content);
+                            }
                         },
                         event: 'painted'
                     }
@@ -75,10 +100,51 @@ Ext.define('CalAPP.view.MyContainer', {
                     {
                         xtype: 'button',
                         handler: function(button, e) {
-                            this.up('#navigationView').pop();
+                            var tinyCont = this.up('#tinyCotainer');
+                            var toMail = tinyCont.down('#to').getValue();
+                            var subJect = tinyCont.down('#subject').getValue();
+                            var content = tinymce.activeEditor.getContent();
+                            var currentdate = '';
+                            var endDate = '';
+                            if(!tinyCont.config.event){
+                                currentdate = tinyCont.config.currentDate;
+                                endDate = tinyCont.config.currentDate;
 
+                                //debugger;
+                            }else{
+                                currentdate = tinyCont.config.event.data.start;
+                                endDate = tinyCont.config.event.data.end;
+                            }
+                            eventStore.add({
+                                event: 'subJect',
+                                title: subJect,
+                                start: currentdate,
+                                end: endDate,
+                                css: 'red',
+                                content :content,
+                                subject:subJect,
+                                to:toMail
+
+                            });
+                            this.up('#navigationView').pop();
+                            CalAPP.calender.refresh();
                         },
                         text: 'Schedule'
+                    },
+                    {
+                        xtype: 'button',
+                        handler: function(button, e) {
+
+                            var tinyCont = this.up('#tinyCotainer');
+
+                            if(tinyCont.config.event){
+                                eventStore.remove(tinyCont.config.event);
+                            }
+                            this.up('#navigationView').pop();
+                            CalAPP.calender.refresh();
+                        },
+                        itemId: 'deleteBUtton',
+                        text: 'delete'
                     }
                 ]
             }

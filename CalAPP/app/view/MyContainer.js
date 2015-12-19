@@ -112,9 +112,10 @@ Ext.define('CalAPP.view.MyContainer', {
                             }else{
                                 currentdate = tinyCont.config.event.data.start;
                                 endDate = tinyCont.config.event.data.end;
+                                eventStore.remove(tinyCont.config.event);
                             }
                             eventStore.add({
-                                event: 'subJect',
+                                event: toMail,
                                 title: subJect,
                                 start: currentdate,
                                 end: endDate,

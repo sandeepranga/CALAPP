@@ -595,11 +595,11 @@ Ext.define('Ext.ux.TouchCalendarView', {
 	        var previousValue = this.getValue() || this.currentDate;
 
 		    // don't fire the event if the values are the same
-		    if(newDate.getTime() !== previousValue.getTime()){
+		    //if(newDate.getTime() !== previousValue.getTime()){
 	            this.setValue(newDate);
 
 	            this.fireEvent('selectionchange', this, newDate, previousValue);
-		    }
+		    //}
 	    }
     },
 

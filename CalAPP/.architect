@@ -20,7 +20,6 @@
                 },
                 {
                     "id": "ca2e3ea3-e687-4b21-93c3-ed8dea603275",
-                    "expanded": false,
                     "cn": [
                         {
                             "id": "81fb20fd-f2eb-4360-a010-05c893eee807",
@@ -39,9 +38,6 @@
                             ]
                         }
                     ]
-                },
-                {
-                    "id": "f76fe98b-5a77-4f30-a5ca-216ac59a00fd"
                 }
             ]
         },
@@ -66,8 +62,8 @@
         "topInstance": null
     },
     "inspectorState": {
-        "topInstance": "application",
-        "selectedInstance": "7ee8e981-f8b7-4c0c-bdc3-e5dfdf8f6d24"
+        "topInstance": "56896acb-688b-4dad-9550-a6d819ed0b65",
+        "selectedInstance": "56896acb-688b-4dad-9550-a6d819ed0b65"
     },
     "editMode": "code",
     "userSettings": {

@@ -33,7 +33,7 @@ Ext.define('CalAPP.view.MyContainer', {
                 docked: 'top',
                 itemId: 'to',
                 label: 'To',
-                placeHolder: 'example@walkingtree.in'
+                placeHolder: 'TheUnknowns@walkingtree.in'
             },
             {
                 xtype: 'textfield',
@@ -109,8 +109,6 @@ Ext.define('CalAPP.view.MyContainer', {
                             if(!tinyCont.config.event){
                                 currentdate = tinyCont.config.currentDate;
                                 endDate = tinyCont.config.currentDate;
-
-                                //debugger;
                             }else{
                                 currentdate = tinyCont.config.event.data.start;
                                 endDate = tinyCont.config.event.data.end;
@@ -149,16 +147,6 @@ Ext.define('CalAPP.view.MyContainer', {
                 ]
             }
         ]
-    },
-
-    initialize: function() {
-        // tinymce.init({
-        //   selector: '#tymca',
-
-
-
-
-        this.callParent();
     }
 
 });

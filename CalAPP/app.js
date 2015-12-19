@@ -28,7 +28,7 @@ Ext.application({
     launch: function() {
         var calendarView = Ext.create('Ext.ux.TouchCalendarView', {
                                 minDate: Ext.Date.add(new Date(), Ext.Date.DAY, -46),
-                                maxDate: Ext.Date.add(new Date(), Ext.Date.DAY, 60),
+                                maxDate: Ext.Date.add(new Date(), Ext.Date.DAY, 360),
                                 viewMode: 'month',
                                 weekStart: 0,
                                 value: new Date(),
@@ -41,9 +41,8 @@ Ext.application({
                             });
         CalAPP.calender = calendarView;
                             var calendarPanel = new Ext.Panel({
-                                //fullscreen: true,
                                 layout: 'fit',
-                                title:'CALENDER',
+                                title:'MAIL SCHEDULER',
                                 items: [calendarView, {
                                     xtype: 'toolbar',
                                     docked: 'top',
@@ -90,31 +89,11 @@ Ext.application({
 
 
                                 var compose = Ext.create('CalAPP.view.MyContainer',{
-                                    event:event
+                                    event:event,
+                                    title :'MAIL SCHEDULER'
                                 });
                                 nv.push(compose);
 
-                            });
-                            calendarView.on('eventdragstart', function(draggable, eventRecord, e){
-                                console.log('eventdragstart');
-                                //console.log(arguments);
-                            });
-                            calendarView.on('beforeeventdrop', function(draggable, eventRecord, e){
-                                console.log('beforeeventdrop');
-                                //console.log(arguments);
-                                return true;
-                            });
-                            calendarView.on('eventdrop', function(draggable, eventRecord, e){
-                                console.log('eventdrop');
-                                //console.log(arguments);
-                            });
-                            calendarView.on('eventdrag', function(draggable, eventRecord, e){
-                                console.log('eventdrag');
-                                //console.log(arguments);
-                            });
-                            calendarView.on('periodchange', function(view, minDate, maxDate, direction){
-                                console.log('periodchange');
-                                console.log(arguments);
                             });
                             calendarView.on('selectionchange', function(view, newDate, oldDate){
 
@@ -127,35 +106,12 @@ Ext.application({
 
                                 var compose = Ext.create('CalAPP.view.MyContainer',{
 
-                                    currentDate : newDate
+                                    currentDate : newDate,
+                                    title :'MAIL SCHEDULER'
                                 });
 
                                 nv.push(compose);
-                            });
-                            calendarView.on('eventdragstart', function(draggable, eventRecord, e){
-                                console.log('eventdragstart');
-                                //console.log(arguments);
-                            });
-                            calendarView.on('beforeeventdrop', function(draggable, eventRecord, e){
-                                console.log('beforeeventdrop');
-                                //console.log(arguments);
-                                return true;
-                            });
-                            calendarView.on('eventdrop', function(draggable, eventRecord, e){
-                                console.log('eventdrop');
-                                //console.log(arguments);
-                            });
-                            calendarView.on('eventdrag', function(draggable, eventRecord, e){
-                                console.log('eventdrag');
-                                //console.log(arguments);
-                            });
-                            calendarView.on('periodchange', function(view, minDate, maxDate, direction){
-                                console.log('periodchange');
-                                console.log(arguments);
-                            });
-                            calendarView.on('selectionchange', function(view, newDate, oldDate){
-                                console.log('selectionchange');
-                                console.log(arguments);
+
                             });
 
 

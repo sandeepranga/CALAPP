@@ -26,7 +26,7 @@
                 "docked": "top",
                 "itemId": "to",
                 "label": "To",
-                "placeHolder": "example@walkingtree.in"
+                "placeHolder": "TheUnknowns@walkingtree.in"
             },
             "name": "MyTextField",
             "designerId": "e43a4e29-9834-41ce-b414-2f582fa2c7ab"
@@ -168,8 +168,6 @@
                                     "if(!tinyCont.config.event){",
                                     "    currentdate = tinyCont.config.currentDate;",
                                     "    endDate = tinyCont.config.currentDate;",
-                                    "",
-                                    "    //debugger;",
                                     "}else{",
                                     "    currentdate = tinyCont.config.event.data.start;",
                                     "    endDate = tinyCont.config.event.data.end;",
@@ -238,28 +236,6 @@
                     ]
                 }
             ]
-        },
-        {
-            "type": "fixedfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "initialize",
-                "implHandler": [
-                    "// tinymce.init({",
-                    "//   selector: '#tymca',",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "this.callParent();"
-                ]
-            },
-            "name": "initialize",
-            "designerId": "f76fe98b-5a77-4f30-a5ca-216ac59a00fd"
         }
     ]
 }

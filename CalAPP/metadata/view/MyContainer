@@ -6,8 +6,157 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "MyContainer"
+        "designer|userClassName": "MyContainer",
+        "height": "100%",
+        "layout": "fit",
+        "width": "100%"
     },
     "name": "MyContainer",
-    "designerId": "56896acb-688b-4dad-9550-a6d819ed0b65"
+    "designerId": "56896acb-688b-4dad-9550-a6d819ed0b65",
+    "cn": [
+        {
+            "type": "Ext.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "top",
+                "label": "To"
+            },
+            "name": "MyTextField",
+            "designerId": "e43a4e29-9834-41ce-b414-2f582fa2c7ab"
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": null,
+                "html": "<div id=\"tymca\" ></div>",
+                "itemId": "tinyMCAEditor",
+                "width": "100%"
+            },
+            "name": "MyContainer1",
+            "designerId": "8c961576-8c2c-4a13-b21c-bde746e843ac",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onTinyMCAEditorPainted",
+                        "implHandler": [
+                            "tinymce.init({",
+                            "  selector: '#tymca',",
+                            "  //height: 500,",
+                            "  theme: 'modern',",
+                            "  plugins: [",
+                            "    'advlist autolink lists link image charmap print preview hr anchor pagebreak',",
+                            "    'searchreplace wordcount visualblocks visualchars code fullscreen',",
+                            "    'insertdatetime media nonbreaking save table contextmenu directionality',",
+                            "    'emoticons template paste textcolor colorpicker textpattern imagetools'",
+                            "  ],",
+                            "  toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',",
+                            "  toolbar2: 'print preview media | forecolor backcolor emoticons',",
+                            "  image_advtab: true,",
+                            "  templates: [",
+                            "    { title: 'Test template 1', content: 'Test 1' },",
+                            "    { title: 'Test template 2', content: 'Test 2' }",
+                            "  ],",
+                            "  content_css: [",
+                            "    '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',",
+                            "    '//www.tinymce.com/css/codepen.min.css'",
+                            "  ]",
+                            " });",
+                            ""
+                        ],
+                        "name": "painted"
+                    },
+                    "name": "onTinyMCAEditorPainted",
+                    "designerId": "50bf4719-3293-49ee-adfb-80ae624680c2"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "bottom"
+            },
+            "name": "MyToolbar",
+            "designerId": "ca2e3ea3-e687-4b21-93c3-ed8dea603275",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "text": "Schedule"
+                    },
+                    "name": "MyButton",
+                    "designerId": "81fb20fd-f2eb-4360-a010-05c893eee807",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "e"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "this.up('#navigationView').pop();",
+                                    ""
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "fefbb5f6-57f8-48a2-9ea7-5eb1c565e10d"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "// tinymce.init({",
+                    "//   selector: '#tymca',",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "this.callParent();"
+                ]
+            },
+            "name": "initialize",
+            "designerId": "f76fe98b-5a77-4f30-a5ca-216ac59a00fd"
+        }
+    ]
 }

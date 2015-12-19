@@ -1,0 +1,57 @@
+.x-toolbar-dark{
+    background-color: #1FAECE !Important;
+    background-image: none !important;
+}
+.x-toolbar-dark .x-button, .x-toolbar-dark .x-button.x-button-back:after, .x-toolbar-dark .x-button.x-button-forward:after, .x-toolbar .x-toolbar-dark .x-button, .x-toolbar .x-toolbar-dark .x-button.x-button-back:after, .x-toolbar .x-toolbar-dark .x-button.x-button-forward:after, .x-toolbar-dark .x-field-select .x-component-outer, .x-toolbar-dark .x-field-select .x-component-outer.x-button-back:after, .x-toolbar-dark .x-field-select .x-component-outer.x-button-forward:after, .x-toolbar
+ .x-toolbar-dark .x-field-select .x-component-outer, .x-toolbar
+ .x-toolbar-dark .x-field-select .x-component-outer.x-button-back:after, .x-toolbar
+ .x-toolbar-dark .x-field-select .x-component-outer.x-button-forward:after{
+	 background-color: white !important;
+	 background-image: none !important;
+	 color: #1FAECE !important;
+	 border: 1px solid white !important;
+	 transition: background 100ms cubic-bezier(.215, .61, .355, 1),border-color 100ms linear,color 100ms linear;
+	     cursor: pointer;
+ }
+ .time-block{
+	 background-color: white !Important;
+    background-image: none !important;
+ }
+ .touch-calendar-view thead{
+	 background-color: white !Important;
+    background-image: none !important;
+ }
+ .time-slot-table{
+	 td{
+		  background-color: #1FAECE !Important;
+    background-image: none !important;
+	 }
+ }
+ .touch-calendar-view table.day tr.selected td{
+	     border: 1px solid #1FAECE !Important;
+ }
+ 
+ .time-slot-table{
+	 .label{
+		 background-color: #1FAECE !Important;
+    background-image: none !important;
+	background:#1FAECE !Important;
+	 }
+ }
+ div.event-bar{
+	 border: 1px solid #1FAECE !Important;
+	 background: #1FAECE !important;
+ }
+ .x-toolbar-dark.x-docked-top{
+	 border-bottom-color: white !Important;
+ }
+ .touch-calendar-view td{
+	 background-image: none !important;
+	background:#1FAECE !Important;
+	    background-color: #fff !Important;
+ }
+ .touch-calendar-view table.day tr.selected td{
+	 color:#1FAECE !important;
+	 text-shadow: #1FAECE 1px 1px 0px;
+	 
+ }
